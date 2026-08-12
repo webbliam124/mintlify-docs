@@ -1,29 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "name": "AiSky",
+  "projectType": "saas",
+  "projectName": "AiSky",
+  "projectDescription": "AiSky is an AI voice receptionist for South African businesses that answers calls 24/7 in all 11 official spoken languages, qualifies callers, books appointments, and takes messages.",
   "theme": "luma",
-  "colors": {
-    "primary": "#040434",
-    "light": "#aaaaaa"
-  },
-  "favicon": "https://media.brand.dev/1c659a00-3fb2-4a6a-87c2-125369c6999b.png",
-  "logo": {
-    "light": "https://media.brand.dev/48232dfe-d7db-466a-a0ff-4f0a10f24516.png",
-    "dark": "https://media.brand.dev/f3474a15-f4ab-4285-a78b-c5170d72d7e9.png"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hello@aisky.co.za"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Get Started",
-      "href": "https://www.aisky.co.za"
-    }
-  },
+  "primaryColor": "#040434",
+  "lightColor": "#aaaaaa",
+  "darkColor": null,
   "navigation": {
     "tabs": [
       {
@@ -82,9 +64,27 @@
       }
     ]
   },
-  "footer": {
-    "socials": {
-      "linkedin": "https://www.linkedin.com/company/thercsgroup"
-    }
-  }
+  "keyFeatures": [
+    "24/7 AI voice reception answering every inbound call",
+    "All 11 official South African spoken languages",
+    "Caller qualification and detail capture",
+    "Appointment booking directly into your calendar",
+    "Message taking and delivery",
+    "Call transfer to a human agent on demand",
+    "Live dashboard with per-call reporting",
+    "Works with existing SA carrier numbers (Telkom, Vodacom, MTN, Cell C, Rain)",
+    "SIP/PBX integration",
+    "POPIA compliant with end-to-end encryption",
+    "No setup fee, no engineering required (~1 hour setup)",
+    "7-day free trial with 100 included minutes"
+  ],
+  "publicApiSurface": [
+    "Call forwarding setup (existing SA carrier number)",
+    "SIP/PBX connection",
+    "Business knowledge base (URL ingestion)",
+    "Calendar integration",
+    "Live dashboard",
+    "Usage alerts (80% and 100% of included minutes)",
+    "Website widget integration"
+  ]
 }

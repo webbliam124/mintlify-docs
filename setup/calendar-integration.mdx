@@ -1,0 +1,78 @@
+---
+title: "Connect Your Calendar for Appointment Booking"
+sidebarTitle: "Calendar"
+description: "Let AiSky book, reschedule, and confirm appointments directly into your Google, Outlook, or Calendly calendar during every inbound call."
+---
+
+AiSky can book appointments on behalf of your callers in real time — no hold music, no call-back required. When a caller asks to schedule a visit or consultation, AiSky checks your live calendar availability, offers suitable time slots, confirms the booking, and sends the caller a confirmation SMS. All of this happens inside the same phone call. To enable booking, connect at least one calendar from the **Integrations** section of your dashboard.
+
+<Note>
+  AiSky defaults to your account timezone, which is set to **South African Standard Time (SAST, UTC+2)** at sign-up. Verify this under **Settings → Account → Timezone** before connecting your calendar to avoid bookings landing at the wrong time.
+</Note>
+
+## Supported Calendars
+
+<CardGroup cols={2}>
+  <Card title="Google Calendar" icon="calendar">
+    Connect any Google Workspace or personal Gmail calendar. AiSky reads your free/busy times and creates events directly in Google Calendar, including a booking summary and caller name.
+  </Card>
+  <Card title="Microsoft 365 / Outlook" icon="calendar-days">
+    Connect your Microsoft 365 or Outlook.com calendar via OAuth. Compatible with Exchange Online and Microsoft 365 Business plans. On-premises Exchange is not currently supported.
+  </Card>
+  <Card title="Calendly" icon="clock">
+    Link your Calendly account so AiSky books into your existing Calendly event types. Calendly's buffer times, limits, and confirmation emails all apply automatically.
+  </Card>
+  <Card title="iCal / CalDAV" icon="link">
+    Connect any CalDAV-compatible calendar (e.g. Apple Calendar, Nextcloud, Fastmail) by entering your CalDAV server URL and credentials. AiSky reads availability and writes new events using the CalDAV protocol.
+  </Card>
+</CardGroup>
+
+## Connect Your Calendar
+
+<Steps>
+  <Step title="Open the Integrations Section">
+    In the AiSky dashboard, click **Integrations** in the left-hand menu, then select **Calendar**.
+  </Step>
+  <Step title="Select Your Calendar Provider">
+    Click the card for your calendar provider:
+
+    - **Google Calendar** — click **Connect with Google** and sign in with the Google account that owns the calendar. Grant the requested permissions (read/write access to calendar events).
+    - **Microsoft 365 / Outlook** — click **Connect with Microsoft** and sign in with your Microsoft account. Accept the permissions prompt.
+    - **Calendly** — click **Connect with Calendly**, sign in, and select which Calendly event type(s) AiSky should book into.
+    - **iCal / CalDAV** — enter your CalDAV server URL, username, and app password, then click **Verify Connection**.
+  </Step>
+  <Step title="Authorise the Connection">
+    After signing in, your calendar provider will ask you to approve AiSky's access. Review the permissions and click **Allow** (or **Accept**). You will be redirected back to the AiSky dashboard and see a green **Connected** badge next to your calendar.
+  </Step>
+  <Step title="Set Available Appointment Slots and Buffer Times">
+    Go to **Integrations → Calendar → Booking Settings** and configure:
+
+    - **Appointment types**: Add each type of appointment you offer (e.g. *Initial Consultation – 60 min*, *Follow-up – 30 min*). AiSky presents these options to callers by name.
+    - **Available hours**: Define the days and times during which AiSky may book appointments. These can differ from your general business hours — for example, you might answer calls on Saturdays but only book appointments Monday to Friday.
+    - **Buffer time**: Set a gap between consecutive appointments so you have time to prepare or travel.
+    - **Advance notice**: Set how far in advance a booking must be made (e.g. at least 2 hours' notice).
+    - **Max bookings per day**: Optionally cap the number of appointments AiSky can schedule in a single day.
+
+    <Tip>
+      Always set a buffer time between appointments — even 10 or 15 minutes makes a significant difference. AiSky will respect it automatically and never double-book your calendar.
+    </Tip>
+  </Step>
+  <Step title="Test by Calling and Booking a Slot">
+    Call your business number from a different phone and ask AiSky to book an appointment. Walk through the full booking flow as a real caller would:
+
+    1. Ask for an appointment (e.g. *"I'd like to book a consultation for next week"*).
+    2. Confirm the appointment type and preferred day.
+    3. Accept or reject the time slot AiSky offers.
+    4. Provide your name and phone number for the confirmation.
+
+    After the call, open your calendar and verify that the event was created with the correct date, time, and caller details. Check that buffer times are reflected correctly around the new booking.
+  </Step>
+</Steps>
+
+## Managing Booked Appointments
+
+All appointments booked by AiSky appear in your connected calendar alongside any bookings you made manually — there is no separate AiSky calendar to monitor. You can reschedule or cancel directly in your calendar app and the change will be reflected in AiSky's availability immediately.
+
+A full log of every booking AiSky made, including the recording and transcript of the booking call, is available in the AiSky dashboard under **Calls → Bookings**.
+
+For further help, email [hello@aisky.co.za](mailto:hello@aisky.co.za).

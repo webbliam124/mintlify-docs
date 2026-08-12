@@ -1,0 +1,100 @@
+---
+title: "Troubleshoot Common AiSky Issues"
+sidebarTitle: "Troubleshooting"
+description: "Step-by-step guidance for diagnosing and fixing the most common problems you may encounter while using AiSky as your AI receptionist."
+---
+
+Most issues with AiSky can be resolved quickly with a few straightforward checks. Work through the relevant section below to diagnose and fix the problem. If you've gone through the steps and the issue continues, the support team is ready to help.
+
+<AccordionGroup>
+  <Accordion title="Calls aren't going to AiSky">
+    If incoming calls are ringing on your phone instead of being answered by AiSky, work through these checks:
+
+    1. **Verify call forwarding is active** on your carrier line. Each carrier has a different process — refer to your carrier's documentation or contact them directly to confirm forwarding is enabled.
+    2. **Check the forwarding number** in your AiSky dashboard matches the number your carrier is forwarding to. A single digit difference will prevent calls from connecting.
+    3. **Confirm your carrier account is in good standing.** Suspended or restricted accounts may silently disable call forwarding features.
+    4. **Test the setup** by calling your business number from a separate device and confirming AiSky answers.
+
+    <Tip>
+      If you're using a PBX or SIP trunk, check that your SIP credentials in the dashboard are current and that your PBX routing rules point to the correct AiSky endpoint.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="AiSky is answering in the wrong language">
+    AiSky automatically detects the caller's language from their speech. If callers are being answered in the wrong language, try the following:
+
+    1. **Check your default language setting** in the dashboard under *Receptionist Settings*. This is the language AiSky falls back to when detection is inconclusive.
+    2. **Update your default** to the language most of your callers use if you haven't already set this.
+    3. If a specific language is being misidentified consistently, contact hello@aisky.co.za with the call IDs affected so the team can investigate the detection model for that case.
+
+    <Info>
+      Language detection works best when the caller speaks at least a full sentence before AiSky responds. Very short or ambiguous greetings may trigger the fallback language.
+    </Info>
+  </Accordion>
+
+  <Accordion title="AiSky doesn't know the answer to a caller's question">
+    AiSky's responses are based on the information in your business knowledge base. If callers are receiving unhelpful or incomplete answers, take these steps:
+
+    1. **Update your knowledge base** in the dashboard — add the missing information directly as a custom entry.
+    2. **Add custom FAQs** for questions your callers ask frequently that aren't covered by your general business description.
+    3. **Re-crawl your website** if you've connected it as a knowledge source and have recently updated your site content.
+    4. After making changes, place a test call to confirm AiSky now answers the question correctly.
+
+    <Warning>
+      AiSky only knows what you've given it. If a topic isn't covered in your knowledge base or website, it will tell the caller it doesn't have that information rather than guess.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Appointments aren't being booked">
+    If AiSky is unable to complete bookings during calls, check the following:
+
+    1. **Confirm your calendar integration is active** in the dashboard under *Integrations*. A disconnected integration will prevent AiSky from reading or writing to your calendar.
+    2. **Check your available slots** are configured correctly — if no open slots are visible to AiSky, it won't be able to offer booking times to callers.
+    3. **Verify your calendar isn't full** for the period callers are requesting. If all slots are taken, AiSky will inform the caller but cannot book.
+    4. **Re-authorise the integration** if you've recently changed your calendar password or revoked app permissions.
+  </Accordion>
+
+  <Accordion title="I'm not receiving message notifications">
+    When AiSky takes a message from a caller, it sends a notification to the email address on your account. If you're not receiving these:
+
+    1. **Check the notification email address** under *Account Settings* in your dashboard. Ensure it's the address you actually monitor.
+    2. **Check your spam or junk folder** — some email providers filter automated notifications by default.
+    3. **Add hello@aisky.co.za to your contacts** or safe-sender list to prevent future emails from being filtered.
+    4. If notifications are still not arriving after these steps, contact support with your account email address so the team can check the delivery logs.
+  </Accordion>
+
+  <Accordion title="My minutes ran out faster than expected">
+    AI voice minutes are measured from the moment AiSky answers a call to the moment it ends, billed per second. If your minutes are depleting more quickly than expected:
+
+    1. **Review your call log** in the dashboard for unusually long calls. A single extended call can consume a significant portion of your monthly allocation.
+    2. **Check whether call transfers are consuming minutes.** Time spent on hold or in transfer may count depending on how your transfer rules are configured.
+    3. **Look for repeated or test calls** that may have accumulated unintentionally.
+    4. **Consider increasing your plan** or purchasing additional minute blocks if your call volume has genuinely grown beyond your current allocation.
+
+    <Tip>
+      You can set up a usage alert in your dashboard to receive an email notification when you've used a set percentage of your monthly minutes.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="The dashboard isn't showing recent calls">
+    If your call log appears incomplete or isn't updating:
+
+    1. **Refresh the page** — the dashboard may not have loaded the latest data on your current session.
+    2. **Check your internet connection** and try again on a different browser or device to rule out a local issue.
+    3. **Check the date range filter** on the call log — it may be set to a range that excludes your recent calls.
+    4. **Contact support** at hello@aisky.co.za if calls you know were answered by AiSky are persistently missing from your log. Include the approximate time and date of the missing calls to help the team investigate.
+  </Accordion>
+
+  <Accordion title="I can't log in to my account">
+    If you're unable to access your AiSky account:
+
+    1. **Use the password reset link** on the login page. Enter your account email address and follow the instructions in the reset email.
+    2. **Check your spam folder** if the reset email doesn't arrive within a few minutes.
+    3. **Ensure you're using the correct email address** — if you signed up with a work alias or a different address, try those instead.
+    4. **If you remain locked out** after attempting a reset, contact the support team directly at hello@aisky.co.za and they'll verify your identity and restore access.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  If you've worked through the relevant steps above and the issue isn't resolved, the AiSky support team is here to help. Email **hello@aisky.co.za** with a description of the problem and your account details — the team typically responds within one business day.
+</Note>

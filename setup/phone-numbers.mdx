@@ -1,0 +1,195 @@
+---
+title: "Connect Your Existing Phone Number to AiSky"
+sidebarTitle: "Phone Numbers"
+description: "Keep your current Telkom, Vodacom, MTN, Cell C, or Rain number and route inbound calls to AiSky in minutes using simple call forwarding."
+---
+
+AiSky works with the phone number your customers already know — there is no need to switch providers, port your number, or print new business cards. You simply forward your existing number to the unique AiSky number assigned to your account, and AiSky answers every call on your behalf. Forwarding takes effect within about 30 seconds, and you can enable or disable it at any time directly from your phone.
+
+## Get Your AiSky Number
+
+Before setting up call forwarding, grab the dedicated number AiSky has assigned to your account.
+
+<Steps>
+  <Step title="Open the AiSky Dashboard">
+    Log in at [app.aisky.co.za](https://app.aisky.co.za) and navigate to **Settings → Phone Number**.
+  </Step>
+  <Step title="Copy Your AiSky Number">
+    Your assigned AiSky number is displayed at the top of the page. Copy it — you will need it when entering the USSD forwarding code on your phone. It looks like `+27 10 XXX XXXX`.
+  </Step>
+</Steps>
+
+## Set Up Call Forwarding
+
+Dial the USSD code for your mobile or landline carrier below. Replace `[AiSkyNumber]` with the full number you copied from the dashboard, including the country code (e.g. `+27101234567`).
+
+<Note>
+  Call forwarding activates within approximately 30 seconds of dialling the USSD code. Make a test call to your own number straight away to confirm AiSky is answering.
+</Note>
+
+<Tabs>
+  <Tab title="Telkom">
+    **Telkom Mobile & Telkom Landline**
+
+    Dial the following code to forward **all calls** to AiSky:
+
+    ```text
+    *21*[AiSkyNumber]#
+    ```
+
+    For example, if your AiSky number is `+27101234567`, dial:
+
+    ```text
+    *21*+27101234567#
+    ```
+
+    To forward only when your line is **busy**:
+
+    ```text
+    *67*[AiSkyNumber]#
+    ```
+
+    To forward only when there is **no answer** (after ~15 seconds):
+
+    ```text
+    *61*[AiSkyNumber]#
+    ```
+
+    To **cancel** all call forwarding:
+
+    ```text
+    ##21#
+    ```
+  </Tab>
+  <Tab title="Vodacom">
+    **Vodacom**
+
+    Dial the following code to forward **all calls** to AiSky:
+
+    ```text
+    *21*[AiSkyNumber]#
+    ```
+
+    To forward only when your line is **busy**:
+
+    ```text
+    *67*[AiSkyNumber]#
+    ```
+
+    To forward only when there is **no answer**:
+
+    ```text
+    *61*[AiSkyNumber]#
+    ```
+
+    To forward when your phone is **off or unreachable**:
+
+    ```text
+    *62*[AiSkyNumber]#
+    ```
+
+    To **cancel** all call forwarding:
+
+    ```text
+    ##21#
+    ```
+
+    You can also manage forwarding in the **My Vodacom** app under **My Profile → Call Settings**.
+  </Tab>
+  <Tab title="MTN">
+    **MTN**
+
+    Dial the following code to forward **all calls** to AiSky:
+
+    ```text
+    *21*[AiSkyNumber]#
+    ```
+
+    To forward only when your line is **busy**:
+
+    ```text
+    *67*[AiSkyNumber]#
+    ```
+
+    To forward only when there is **no answer**:
+
+    ```text
+    *61*[AiSkyNumber]#
+    ```
+
+    To forward when your phone is **off or unreachable**:
+
+    ```text
+    *62*[AiSkyNumber]#
+    ```
+
+    To **cancel** all call forwarding:
+
+    ```text
+    ##21#
+    ```
+
+    Alternatively, dial **173** to reach MTN self-service and manage forwarding options via the voice menu.
+  </Tab>
+  <Tab title="Cell C">
+    **Cell C**
+
+    Dial the following code to forward **all calls** to AiSky:
+
+    ```text
+    *21*[AiSkyNumber]#
+    ```
+
+    To forward only when your line is **busy**:
+
+    ```text
+    *67*[AiSkyNumber]#
+    ```
+
+    To forward only when there is **no answer**:
+
+    ```text
+    *61*[AiSkyNumber]#
+    ```
+
+    To forward when your phone is **off or unreachable**:
+
+    ```text
+    *62*[AiSkyNumber]#
+    ```
+
+    To **cancel** all call forwarding:
+
+    ```text
+    ##21#
+    ```
+  </Tab>
+  <Tab title="Rain">
+    **Rain**
+
+    Rain is a data-first network — voice calls are carried over Rain's VoIP service. To forward calls to AiSky, configure call forwarding inside the **Rain app**:
+
+    1. Open the **Rain app** on your device.
+    2. Tap **Account → Call Settings → Call Forwarding**.
+    3. Enable **Forward all calls** and enter your AiSky number (`+27101234567`).
+    4. Tap **Save**.
+
+    If your Rain SIM supports standard GSM USSD, you can also try:
+
+    ```text
+    *21*[AiSkyNumber]#
+    ```
+
+    To **cancel** forwarding via USSD:
+
+    ```text
+    ##21#
+    ```
+  </Tab>
+</Tabs>
+
+## Verify the Connection
+
+Once forwarding is active, call your own business number from a different phone. AiSky should answer within two rings using the greeting you configured. If the call rings through to your personal voicemail instead, double-check that you entered the AiSky number correctly — including the `+27` country code — in the USSD string.
+
+For further help, email [hello@aisky.co.za](mailto:hello@aisky.co.za).

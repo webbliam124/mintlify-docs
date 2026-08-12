@@ -1,0 +1,124 @@
+---
+title: "Connect AiSky to Your PBX via SIP Trunk"
+sidebarTitle: "PBX & SIP"
+description: "Integrate AiSky with your existing PBX or IP phone system using a standard SIP trunk — no carrier changes or new hardware required."
+---
+
+If your business already runs a PBX or IP telephony system, you can route inbound calls to AiSky over a standard SIP trunk. AiSky acts as a SIP endpoint: your PBX dials out to AiSky's SIP URI whenever a call arrives, AiSky handles the conversation, and can transfer the call back to any internal extension when a human is needed. This approach gives you fine-grained control over which call flows reach AiSky and which go directly to your team.
+
+<Note>
+  AiSky supports standard SIP trunk protocols (SIP over UDP, TCP, and TLS) and is compatible with popular PBX platforms including 3CX, FreePBX, Asterisk, Yeastar, and Grandstream UCM.
+</Note>
+
+## Connect Your PBX to AiSky
+
+<Steps>
+  <Step title="Get Your SIP Credentials from the Dashboard">
+    Log in at [app.aisky.co.za](https://app.aisky.co.za) and go to **Settings → PBX & SIP**.
+
+    Copy the following values — you will need them when configuring your PBX:
+
+    | Field | Example value |
+    |---|---|
+    | SIP Server (Registrar) | `sip.aisky.co.za` |
+    | SIP Port | `5060` (UDP/TCP) or `5061` (TLS) |
+    | SIP Username | `your-account-username` |
+    | SIP Password | `••••••••••••••••` |
+    | SIP URI | `sip:reception@sip.aisky.co.za` |
+
+    <Warning>
+      Keep your SIP username and password private. Anyone with these credentials can make calls billed to your account. Do not commit them to version control or share them in plain text. If you suspect a compromise, rotate your credentials immediately from **Settings → PBX & SIP → Regenerate Credentials**.
+    </Warning>
+  </Step>
+  <Step title="Configure a SIP Trunk on Your PBX">
+    Create a new outbound SIP trunk on your PBX pointing to AiSky's SIP server. The exact menu path varies by platform — see the configuration examples below for common formats.
+
+    <CodeGroup>
+      ```ini Asterisk / FreePBX (sip.conf)
+      [aisky-trunk]
+      type=peer
+      host=sip.aisky.co.za
+      port=5060
+      username=your-account-username
+      secret=your-sip-password
+      fromuser=your-account-username
+      fromdomain=sip.aisky.co.za
+      insecure=port,invite
+      qualify=yes
+      nat=force_rport,comedia
+      dtmfmode=rfc2833
+      disallow=all
+      allow=ulaw
+      allow=alaw
+      ```
+
+      ```ini Asterisk PJSIP (pjsip.conf)
+      [aisky-auth]
+      type=auth
+      auth_type=userpass
+      username=your-account-username
+      password=your-sip-password
+
+      [aisky-registration]
+      type=registration
+      transport=transport-udp
+      outbound_auth=aisky-auth
+      server_uri=sip:sip.aisky.co.za
+      client_uri=sip:your-account-username@sip.aisky.co.za
+      retry_interval=60
+
+      [aisky-trunk]
+      type=endpoint
+      transport=transport-udp
+      context=from-aisky
+      disallow=all
+      allow=ulaw,alaw
+      outbound_auth=aisky-auth
+      aors=aisky-aor
+
+      [aisky-aor]
+      type=aor
+      contact=sip:sip.aisky.co.za
+      ```
+
+      ```xml 3CX (trunk XML snippet)
+      <Trunk>
+        <Name>AiSky</Name>
+        <RegistrarServer>sip.aisky.co.za</RegistrarServer>
+        <RegistrarPort>5060</RegistrarPort>
+        <AuthID>your-account-username</AuthID>
+        <AuthPassword>your-sip-password</AuthPassword>
+        <SIPTrunkAuthenticationMethod>Register</SIPTrunkAuthenticationMethod>
+        <CodecPriority>PCMU,PCMA</CodecPriority>
+        <DTMFType>RFC2833</DTMFType>
+      </Trunk>
+      ```
+    </CodeGroup>
+
+    Replace `your-account-username` and `your-sip-password` with the values you copied from the AiSky dashboard.
+  </Step>
+  <Step title="Route Inbound Calls to the AiSky Extension">
+    Configure an inbound route on your PBX so that calls arriving on your main business DID are forwarded through the AiSky trunk.
+
+    - **Destination**: `sip:reception@sip.aisky.co.za`
+    - **Dial string (Asterisk)**: `Dial(SIP/aisky-trunk/reception,30)`
+
+    You can route all inbound calls to AiSky, or only calls that arrive outside business hours — whatever suits your workflow. AiSky can transfer the call back to any internal extension (e.g. `101`) by saying the extension aloud or via DTMF.
+  </Step>
+  <Step title="Test the Connection">
+    Call your main business number from an external phone. Your PBX should route the call through the AiSky trunk and AiSky should answer with your configured greeting.
+
+    You can also use the built-in connection test in the dashboard: go to **Settings → PBX & SIP → Test Connection**. AiSky will place a SIP OPTIONS ping to your trunk and display the result within 10 seconds.
+
+    If the call does not connect, check:
+    - Your firewall allows outbound UDP/TCP on port **5060** (or 5061 for TLS) to `sip.aisky.co.za`.
+    - The SIP credentials were entered without leading or trailing spaces.
+    - Your PBX clock is synchronised (NTP) — SIP authentication is time-sensitive.
+  </Step>
+</Steps>
+
+## Transferring Calls Back to Humans
+
+When a caller asks to speak to a person, AiSky initiates a SIP REFER or blind transfer to the extension you specify in **Settings → Call Handling → Transfer Extension**. You can set different transfer targets for different scenarios (e.g. sales vs. support) from the dashboard without touching your PBX config.
+
+For further help, email [hello@aisky.co.za](mailto:hello@aisky.co.za).
