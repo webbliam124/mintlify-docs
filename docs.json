@@ -43,7 +43,8 @@
               "setup/phone-numbers",
               "setup/pbx-sip",
               "setup/business-knowledge",
-              "setup/calendar-integration"
+              "setup/calendar-integration",
+              "setup/website-widget"
             ]
           },
           {

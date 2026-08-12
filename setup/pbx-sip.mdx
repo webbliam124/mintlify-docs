@@ -1,5 +1,5 @@
 ---
-title: "Connect AiSky to Your PBX via SIP Trunk"
+title: "Connect AiSky to Your Existing PBX Using a SIP Trunk"
 sidebarTitle: "PBX & SIP"
 description: "Integrate AiSky with your existing PBX or IP phone system using a standard SIP trunk — no carrier changes or new hardware required."
 ---
@@ -14,7 +14,7 @@ If your business already runs a PBX or IP telephony system, you can route inboun
 
 <Steps>
   <Step title="Get Your SIP Credentials from the Dashboard">
-    Log in at [app.aisky.co.za](https://app.aisky.co.za) and go to **Settings → PBX & SIP**.
+    Log in at [app.aisky.co.za](https://app.aisky.co.za) and go to **Integrations → PBX/SIP**.
 
     Copy the following values — you will need them when configuring your PBX:
 
@@ -27,7 +27,7 @@ If your business already runs a PBX or IP telephony system, you can route inboun
     | SIP URI | `sip:reception@sip.aisky.co.za` |
 
     <Warning>
-      Keep your SIP username and password private. Anyone with these credentials can make calls billed to your account. Do not commit them to version control or share them in plain text. If you suspect a compromise, rotate your credentials immediately from **Settings → PBX & SIP → Regenerate Credentials**.
+      Keep your SIP username and password private. Anyone with these credentials can make calls billed to your account. Do not commit them to version control or share them in plain text. If you suspect a compromise, rotate your credentials immediately from **Integrations → PBX/SIP → Regenerate Credentials**.
     </Warning>
   </Step>
   <Step title="Configure a SIP Trunk on Your PBX">
@@ -108,7 +108,7 @@ If your business already runs a PBX or IP telephony system, you can route inboun
   <Step title="Test the Connection">
     Call your main business number from an external phone. Your PBX should route the call through the AiSky trunk and AiSky should answer with your configured greeting.
 
-    You can also use the built-in connection test in the dashboard: go to **Settings → PBX & SIP → Test Connection**. AiSky will place a SIP OPTIONS ping to your trunk and display the result within 10 seconds.
+    You can also use the built-in connection test in the dashboard: go to **Integrations → PBX/SIP → Test Connection**. AiSky will place a SIP OPTIONS ping to your trunk and display the result within 10 seconds.
 
     If the call does not connect, check:
     - Your firewall allows outbound UDP/TCP on port **5060** (or 5061 for TLS) to `sip.aisky.co.za`.

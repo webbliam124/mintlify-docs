@@ -1,0 +1,119 @@
+---
+title: "Add the AiSky Website Widget to Your Business Site"
+sidebarTitle: "Website Widget"
+description: "Embed the AiSky website widget to let visitors start a call or leave a message with your AI receptionist directly from your business website."
+---
+
+The AiSky website widget adds a small interactive button to your business website, letting visitors initiate a call or leave a message with your AI receptionist without picking up a phone. It works on any website platform, takes only a few minutes to install, and requires no coding experience for the basic setup.
+
+## Installation
+
+<Steps>
+  <Step title="Copy your embed snippet">
+    In your AiSky dashboard, go to **Integrations → Website Widget**. Click **Copy Snippet** to copy your unique JavaScript embed code to your clipboard. This snippet is tied to your account — do not share it publicly or reuse it across separate AiSky accounts.
+  </Step>
+  <Step title="Paste the snippet into your website">
+    Add the snippet to your website by pasting it into the `<head>` section or just before the closing `</body>` tag of every page where you want the widget to appear. See the platform-specific instructions below if you need guidance for your website platform.
+  </Step>
+  <Step title="Customise the widget">
+    Return to **Integrations → Website Widget** in your dashboard to adjust the widget's appearance and behaviour — including colour, position, greeting message, and call-to-action label. Changes take effect immediately without re-pasting the snippet.
+  </Step>
+  <Step title="Test the widget">
+    Visit your website in a browser and confirm the widget button appears in the correct position. Click it to verify it opens correctly and that your AI receptionist responds as expected.
+  </Step>
+</Steps>
+
+## Pasting the snippet
+
+The snippet is a short JavaScript tag. Paste it exactly as copied — do not modify the tag content.
+
+<CodeGroup>
+
+```html HTML
+<!-- Paste just before </body> in your HTML file -->
+<script
+  src="https://widget.aisky.co.za/embed.js"
+  data-account-id="YOUR_ACCOUNT_ID"
+  async
+></script>
+```
+
+```php WordPress (Code Snippets plugin)
+// In the Code Snippets plugin, create a new snippet,
+// set the run location to "Site-wide footer", and paste:
+function aisky_widget() {
+    echo '<script src="https://widget.aisky.co.za/embed.js" data-account-id="YOUR_ACCOUNT_ID" async></script>';
+}
+add_action( 'wp_footer', 'aisky_widget' );
+```
+
+</CodeGroup>
+
+## Platform-specific instructions
+
+<Tabs>
+  <Tab title="WordPress">
+    The easiest way to add the snippet to WordPress without editing theme files is to use the free **Code Snippets** plugin:
+
+    1. In your WordPress admin, go to **Plugins → Add New** and search for *Code Snippets*. Install and activate it.
+    2. Go to **Snippets → Add New**.
+    3. Give the snippet a name (e.g. *AiSky Widget*), paste the PHP code from the example above into the code editor, and set the run location to **Site-wide footer**.
+    4. Click **Save Changes and Activate**.
+    5. Visit your website to confirm the widget appears.
+
+    Alternatively, if your theme supports it, paste the HTML snippet directly into **Appearance → Theme Editor → footer.php**, just before the `</body>` tag.
+  </Tab>
+  <Tab title="Shopify">
+    1. In your Shopify admin, go to **Online Store → Themes**.
+    2. Next to your active theme, click **Actions → Edit code**.
+    3. Under *Layout*, open **theme.liquid**.
+    4. Locate the closing `</body>` tag and paste the HTML snippet immediately before it.
+    5. Click **Save**.
+    6. Visit your storefront to confirm the widget is visible.
+  </Tab>
+  <Tab title="Wix">
+    1. In the Wix editor, click **Add** (the **+** icon) in the left panel.
+    2. Select **Embed Code → Embed HTML**.
+    3. Paste the HTML snippet into the code panel that appears.
+    4. Click **Apply** and position or hide the embed block as needed (the widget button will appear in the fixed position you've configured — bottom-left or bottom-right).
+    5. Publish your site to make the widget live.
+
+    <Note>
+      Wix Embed HTML blocks are page-specific by default. To show the widget on every page, add it to a section that appears on all pages, or repeat the step for each page.
+    </Note>
+  </Tab>
+  <Tab title="Custom HTML">
+    Open the HTML file for your webpage in a text editor and paste the snippet just before the closing `</body>` tag:
+
+    ```html
+    <!-- AiSky Widget -->
+    <script
+      src="https://widget.aisky.co.za/embed.js"
+      data-account-id="YOUR_ACCOUNT_ID"
+      async
+    ></script>
+    </body>
+    ```
+
+    Save the file and upload it to your web server. Repeat for any additional pages where you want the widget to appear, or add it to a shared template or layout file to apply it site-wide automatically.
+  </Tab>
+</Tabs>
+
+## Widget customisation
+
+You can customise the widget's appearance and default behaviour from **Integrations → Website Widget** in your dashboard. No code changes are required — updates apply automatically to your embedded widget.
+
+| Setting | Options |
+|---|---|
+| **Colour** | Any hex colour — defaults to your brand primary colour if set |
+| **Position** | Bottom-left or bottom-right of the screen |
+| **Greeting message** | The text shown when the widget is first opened |
+| **Call-to-action label** | The label on the widget button (e.g. *Talk to us* or *Need help?*) |
+
+<Note>
+  Calls and messages received through the website widget use your AI receptionist in exactly the same way as phone calls. Widget minutes count against your monthly included minutes (250 minutes on the standard plan), and additional minutes are billed at R0.97/min.
+</Note>
+
+<Tip>
+  After embedding the snippet, open your website in a private or incognito browser window to test the widget as a first-time visitor would experience it. This avoids cached versions of your site and gives you a clean view of the widget's default state.
+</Tip>
